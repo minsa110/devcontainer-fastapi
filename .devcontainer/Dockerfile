@@ -1,5 +1,4 @@
-ARG VARIANT=bullseye
-FROM mcr.microsoft.com/devcontainers/python:0-${VARIANT}
+FROM mcr.microsoft.com/devcontainers/python:${VERSION}-${VARIANT}
 
 # RUN python3 -m pip install fastapi uvicorn
 

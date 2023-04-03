@@ -6,7 +6,8 @@
 		"context": "..",
         "dockerfile": "Dockerfile",
         "args": {
-            "VARIANT": "bullseye"
+            "VARIANT": "bullseye",
+			"VERSION": "3.10"
         }
     },
 

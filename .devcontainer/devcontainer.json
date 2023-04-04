@@ -6,7 +6,8 @@
 		"context": "..",
         "dockerfile": "Dockerfile",
         "args": {
-            "VARIANT": "bullseye"
+            "VARIANT": "bullseye",
+			"VERSION": "3.10"
         }
     },
 
@@ -25,7 +26,8 @@
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-python.python",
-				"ms-python.pylint"
+				"ms-python.pylint",
+				"GitHub.copilot-nightly"
 			]
 		}
 	},

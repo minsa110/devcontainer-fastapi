@@ -1,0 +1,10 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "ai-plugin.json"
+            ],
+            "url": "https://raw.githubusercontent.com/minsa110/ai-plugin-schema/main/ai-plugin-schema.json"
+        }
+    ]
+}

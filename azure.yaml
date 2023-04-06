@@ -11,5 +11,5 @@ services:
     module: app/api
     docker:
       path: ./Dockerfile
-      context: ./
+      context: ../
       platform: amd64

@@ -9,3 +9,7 @@ services:
     language: py
     host: containerapp
     module: app/api
+    docker:
+      path: ./Dockerfile
+      context: ./
+      platform: amd64

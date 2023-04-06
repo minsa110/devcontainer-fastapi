@@ -10,6 +10,6 @@ services:
     host: containerapp
     module: app/api
     docker:
-      path: ../Dockerfile
+      path: ./Dockerfile
       context: ../
       platform: amd64

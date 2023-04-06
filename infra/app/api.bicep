@@ -59,6 +59,10 @@ module app '../core/host/container-app.bicep' = {
         name: 'REDIS_PORT'
         value: string(redisPort)
       }
+      {
+        name: 'PLUGIN_HOSTNAME'
+        value: 'https://${name}.${containerAppsEnvironment.properties.defaultDomain}'
+      }
     ]
     imageName: !empty(imageName) ? imageName : 'nginx:latest'
     targetPort: 80
@@ -67,6 +71,10 @@ module app '../core/host/container-app.bicep' = {
 
 resource applicationInsights 'Microsoft.Insights/components@2020-02-02' existing = {
   name: applicationInsightsName
+}
+
+resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2022-03-01' existing = {
+  name: containerAppsEnvironmentName
 }
 
 output SERVICE_API_IDENTITY_PRINCIPAL_ID string = app.outputs.identityPrincipalId

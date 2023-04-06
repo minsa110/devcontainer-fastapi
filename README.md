@@ -25,7 +25,7 @@ To test the app, run `uvicorn main:app` in the integrated terminal, or press `F5
  
    Include a __main__ section which will run this app using uvicorn. The Python module where I save this code will be called main.py.
  
-   In addition to the normal endpoints, include a route .wellknown/ai-plugin.json which serves (as JSON) the contents of ./ai-plugin.json, located in the same directory as main.py. Exclude this route from the OpenAPI spec, and don't serve any other static content.
+   In addition to the normal endpoints, include a route .well-known/ai-plugin.json which serves (as JSON) the contents of ./ai-plugin.json, located in the same directory as main.py. Exclude this route from the OpenAPI spec, and don't serve any other static content.
    ```
 - `ai-plugin.json` is a JSON manifest file that defines relevant metadata for the plugin.
 

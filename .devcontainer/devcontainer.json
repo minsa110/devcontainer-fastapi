@@ -27,7 +27,6 @@
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-python.python",
-				"ms-python.pylint",
 				"GitHub.copilot-nightly",
 				"ms-azuretools.azure-dev",
                 "ms-azuretools.vscode-bicep",

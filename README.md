@@ -32,8 +32,8 @@ To test the app, run `uvicorn main:app` in the integrated terminal, or press `F5
 ## Code to help deploy the app on the cloud
 This repo uses Azure Developer CLI to create two Azure Container Apps: one for the API and the other for the vector database (using Redis), then deploys the app. You can use the following commands to invoke the deployment flow:
 ```bash
-azd auth login
-azd init --template minsa110/devcontainer-fastapi
+azd auth login # for now, use azd login
+azd init --template minsa110/devcontainer-fastapi # for specific branch, use -b {branch}
 azd env set BEARER_TOKEN footoken
 azd env set OPENAI_API_KEY {your open ai key}
 azd up

@@ -1,4 +1,4 @@
-# Build a FastAPI app for OpenAI plugin
+# Building an Open AI plugin with Codespaces and Azure
 
 This is a sample repo for developing OpenAI plugin using the FastAPI framework. There are three main parts of the repo:
 - Code to help setup development environment for FastAPI framework

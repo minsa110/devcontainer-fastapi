@@ -4,11 +4,7 @@
 	"name": "FastAPI",
     "build": {
 		"context": "..",
-        "dockerfile": "Dockerfile",
-        "args": {
-            "VARIANT": "bullseye",
-			"VERSION": "3.10"
-        }
+        "dockerfile": "Dockerfile"
     },
 
     "customizations": {
@@ -18,7 +14,6 @@
 			"settings": {
 				"[python]": {
 					"defaultInterpreterPath": "/opt/conda/envs/myenv/bin/python",
-					"editor.defaultFormatter": "ms-python.black-formatter",
 					"editor.formatOnType": true,
 					"editor.formatOnSave": true
 				}

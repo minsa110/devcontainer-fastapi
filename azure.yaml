@@ -1,13 +1,11 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
 
-name: flask-app
+name: fastapi-app
+metadata:
+  template: fastapi-app@0.0.1-beta
 services:
   api:
-    project: ./server
+    project: .
     language: py
     host: containerapp
     module: app/api
-    docker:
-      path: ../Dockerfile
-      context: ../
-      platform: amd64

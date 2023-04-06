@@ -7,6 +7,12 @@
         "dockerfile": "Dockerfile"
     },
 
+	"features": {
+		"ghcr.io/devcontainers/features/docker-from-docker:1": {
+            "version": "20.10"
+        }
+	},
+
     "customizations": {
 		// Configure properties specific to VS Code.
 		"vscode": {

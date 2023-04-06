@@ -7,5 +7,6 @@ FROM mcr.microsoft.com/devcontainers/python:${VERSION}-${VARIANT}
 
 # Copy requirements.txt (if found) to a temp location so we update the environment. Also
 # copy "noop.txt" so the COPY instruction does not fail if no requirements.txt exists.
-COPY requirements.txt* .devcontainer/noop.txt /tmp/pip
-RUN if [ -f "/tmp/pip/requirements.txt" ]; then umask 0002 && python3 -m pip install /tmp/pip/requirements.txt && sudo rm -rf /tmp/pip; fi
+COPY requirements.txt* .devcontainer/noop.txt /tmp/pip/
+RUN if [ -f "/tmp/pip/requirements.txt" ]; then umask 0002 && python3 -m pip install /tmp/pip/requirements.txt; fi
+# RUN if [ -f "/tmp/pip/requirements.txt" ]; then umask 0002 && python3 -m pip install /tmp/pip/requirements.txt && sudo rm -rf /tmp/pip; fi

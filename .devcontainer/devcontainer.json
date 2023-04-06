@@ -32,12 +32,15 @@
 	},
 
     "forwardPorts": [
-        8000
+        8000,
+		6379
     ],
 
 	"hostRequirements": {
         "memory": "8gb"
-    }
+    },
+
+	"postAttachCommand": "export DATASTORE=redis && export BEARER_TOKEN=footoken && export OPENAI_API_KEY='' && docker compose -f ./docker-compose.yml up -d"
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",

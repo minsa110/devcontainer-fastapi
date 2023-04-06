@@ -4,12 +4,8 @@ name: fastapi-app
 metadata:
   template: fastapi-app@0.0.1-beta
 services:
-  api:
-    project: ./server
-    language: py
-    host: containerapp
-    module: app/api
-    docker:
-      path: ./Dockerfile
-      context: ../
-      platform: amd64
+    api:
+        project: .
+        language: py
+        module: app/api
+        host: containerapp

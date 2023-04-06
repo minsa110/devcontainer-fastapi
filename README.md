@@ -12,7 +12,7 @@ The `.devcontainer` folder contains files for defining a containerized developme
 
 ### **.vscode**
 The `.vscode` folder contains:
-- `json.code-snippets` file that helps to quickly write the manifest file for the OpenAI plugin. (✨ Type `manifest-openai` then press `tab` to generate a )
+- `json.code-snippets` file that helps to quickly write the manifest file for the OpenAI plugin. (✨ Type `manifest-openai` then press `tab` to quickly generate a fill-in-the-blank manifest)
 - `settings.json` file that helps to validate the manifest file (`ai-plugin.json`) against THIS.
 - `launch.json` file that helps to customize **Run and Debug**.
 

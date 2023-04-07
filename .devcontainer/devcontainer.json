@@ -45,7 +45,7 @@
         "memory": "8gb"
     },
 
-	"postAttachCommand": ".devcontainer/setup.sh"
+	"postAttachCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh"
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",

@@ -42,8 +42,10 @@
     ],
 
 	"hostRequirements": {
-        "memory": "4gb"
-    }
+        "memory": "8gb"
+    },
+
+	"postAttachCommand": ".devcontainer/setup.sh"
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",

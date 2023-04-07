@@ -1,0 +1,19 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "TODO app",
+    "name_for_model": "TODO_APP",
+    "description_for_human": "Todo app for managing your tasks",
+    "description_for_model": "Todo app for managing your tasks",
+    "auth": {
+        "type": "user_http",
+        "authorization_type": "bearer"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://your-app-url.com/openapi.yaml",
+        "is_user_authenticated": "false"
+    },
+    "logo_url": "https://example.com/logo.png",
+    "contact_email": "example@company.com",
+    "legal_info_url": "https://example.com/legal"
+}

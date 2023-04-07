@@ -7,6 +7,12 @@
         "dockerfile": "Dockerfile"
     },
 
+	"features": {
+		"ghcr.io/devcontainers/features/docker-from-docker:1": {
+            "version": "20.10"
+        }
+	},
+
     "customizations": {
 		// Configure properties specific to VS Code.
 		"vscode": {
@@ -21,15 +27,25 @@
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-python.python",
-				"ms-python.pylint",
-				"GitHub.copilot-nightly"
+				"GitHub.copilot-nightly",
+				"ms-azuretools.azure-dev",
+                "ms-azuretools.vscode-bicep",
+                "ms-azuretools.vscode-docker",
+                "ms-azuretools.vscode-azurefunctions"
 			]
 		}
 	},
 
     "forwardPorts": [
-        8000
-    ]
+        8000,
+		6379
+    ],
+
+	"hostRequirements": {
+        "memory": "8gb"
+    },
+
+	"postAttachCommand": "export DATASTORE=redis && export BEARER_TOKEN=footoken && export OPENAI_API_KEY='' && docker compose -f ./docker-compose.yml up -d"
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",

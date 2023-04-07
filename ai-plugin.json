@@ -10,7 +10,7 @@
     },
     "api": {
         "type": "openapi",
-        "url": "https://example.com/openapi.yaml",
+        "url": "https://your-app-url.com/openapi.yaml",
         "is_user_authenticated": "false"
     },
     "logo_url": "https://example.com/logo.png",

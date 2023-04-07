@@ -1,0 +1,82 @@
+openapi: 3.0.0
+info:
+  title: TODO app
+  description: Todo app for managing your tasks
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+paths:
+  /todos:
+    post:
+      summary: Create a new TODO item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoItem'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  item_id:
+                    type: integer
+                    format: int64
+    get:
+      summary: Get a list of all TODO items
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TodoItem'
+  /todos/{item_id}:
+    get:
+      summary: Get a TODO item by ID
+      parameters:
+        - name: item_id
+          in: path
+          required: true
+          description: ID of the TODO item to retrieve
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TodoItem'
+    delete:
+      summary: Delete a TODO item by ID
+      parameters:
+        - name: item_id
+          in: path
+          required: true
+          description: ID of the TODO item to delete
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: No Content
+components:
+  schemas:
+    TodoItem:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+      required:
+        - title
+        - description

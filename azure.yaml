@@ -9,3 +9,5 @@ services:
     language: py
     module: app/api
     host: containerapp
+    docker:
+      path: ./Dockerfile

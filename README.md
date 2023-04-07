@@ -27,6 +27,8 @@ If you have [access](https://code.visualstudio.com/blogs/2023/03/30/vscode-copil
    Include a __main__ section which will run this app using uvicorn. The Python module where I save this code will be called main.py.
  
    In addition to the normal endpoints, include a route .well-known/ai-plugin.json which serves (as JSON) the contents of ./ai-plugin.json, located in the same directory as main.py. Exclude this route from the OpenAPI spec, and don't serve any other static content.
+   
+   Secure the app with simple OAuth. For simplicity, create a dummy implementation that always returns the same token, footoken.
    ```
 - `ai-plugin.json` is a JSON manifest file that defines relevant metadata for the plugin.
 

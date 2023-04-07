@@ -5,7 +5,8 @@
     "description_for_human": "Todo app for managing your tasks",
     "description_for_model": "Todo app for managing your tasks",
     "auth": {
-        "type": "none"
+        "type": "user_http",
+        "authorization_type": "bearer"
     },
     "api": {
         "type": "openapi",

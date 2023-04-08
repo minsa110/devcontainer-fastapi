@@ -2,15 +2,17 @@ import json
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.openapi.utils import get_openapi
+from fastapi.staticfiles import StaticFiles
 import os
 import redis
 
 redis_client = redis.StrictRedis(host='0.0.0.0', port=6379, db=0)
 
 # Get the value of PLUGIN_HOSTNAME from the environment variable, or use the default value
-plugin_hostname = os.environ.get('PLUGIN_HOSTNAME', 'https://your-app-url.com')
+plugin_hostname = os.environ.get('PLUGIN_HOSTNAME', '')
 
 app = FastAPI()
+app.mount("/.well-known", StaticFiles(directory=".well-known"), name="static")
 
 # Create a sub-application, in order to access just the query endpoints in the OpenAPI schema, found at http://0.0.0.0:8000/sub/openapi.json when the app is running locally
 sub_app = FastAPI(

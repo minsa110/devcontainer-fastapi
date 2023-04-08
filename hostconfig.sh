@@ -22,10 +22,10 @@ else
 fi
 
 # Input JSON file
-json_input_file="./ai-plugin.json"
+json_input_file="./.well-known/ai-plugin.json"
 
 # Input YAML file
-yaml_input_file="./openapi.yaml"
+yaml_input_file="./.well-known/openapi.yaml"
 
 # Create temporary files to store the modified JSON and YAML
 temp_json_file=$(mktemp)

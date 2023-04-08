@@ -18,8 +18,11 @@ export DATASTORE=redis
 export BEARER_TOKEN=footoken 
 export PLUGIN_HOSTNAME=https://$CODESPACE_NAME-8000.$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN 
 
+echo
+echo "Setting host configuration (from ./hostconfig.sh)..."
 ./hostconfig.sh
 
+echo
 echo "Click on GitHub Codespaces PORTS tab.  Right click on port 8000, and set Port Visibility to Public. Once Port 8000 if Public, press Enter to continue..."
 read -r placeholder_var
 

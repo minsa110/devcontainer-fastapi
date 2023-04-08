@@ -36,7 +36,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/TodoItem"
+                  $ref: "#/components/schemas/TodoList"
   /todos/{item_id}:
     get:
       summary: Get a TODO item by ID
@@ -75,8 +75,5 @@ components:
       properties:
         title:
           type: string
-        todo_id:
-          type: int
       required:
         - title
-        - todo_id

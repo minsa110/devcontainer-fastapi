@@ -4,19 +4,26 @@ info:
   description: Todo app for managing your tasks on ChatGPT
   version: 1.0.0
   servers:
-    - url: https://your-app-url.com
+    - url: https://minsa110-laughing-eureka-979q457rx6q3p954-8000.preview.app.github.dev
 paths:
   /todos:
     post:
       summary: Create a new TODO item
       description: Accepts a string and adds as new TODO item
       operationId: create_todo
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/TodoItem"
+      parameters:
+        - in: query
+          name: todo
+          schema:
+            type: string
+          required: true
+          description: The description of the TODO item
+      # requestBody:
+      #   required: true
+      #   content:
+      #     application/json:
+      #       schema:
+      #         $ref: "#/components/schemas/TodoItem"
       responses:
         "200":
           description: OK
@@ -78,5 +85,11 @@ components:
     TodoItem:
       type: object
       properties:
-        title:
+        todo:
           type: string
+        todo_id:
+          type: integer
+          format: int32
+          readOnly: true
+      required:
+        - todo

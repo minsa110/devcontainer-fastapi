@@ -10,15 +10,16 @@ app.mount("/.well-known", StaticFiles(directory=".well-known"), name="static")
 
 # Route to list all TODOs
 @app.get("/todos")
-async def list_todos():
+def list_todos():
     todos = {}
     for key in redis_client.keys():
-        todos[key] = str(redis_client.get(key))+" (id: "+key+"))"
+        if key != 'todo_id':
+            todos[key] = "["+key+"] "+str(redis_client.get(key))
     return todos
 
 # Route to list a specific TODO
 @app.get("/todos/{todo_id}")
-async def list_todo(todo_id: int):
+def list_todo(todo_id: int):
     todo = redis_client.get(str(todo_id))
     if todo:
         return {"todo_id": todo_id, "todo": todo}
@@ -27,7 +28,7 @@ async def list_todo(todo_id: int):
 
 # Route to add a TODO
 @app.post("/todos")
-async def add_todo(todo: str):
+def add_todo(todo: str):
     # Generate a unique todo_id
     todo_id = redis_client.incr('todo_id')
     redis_client.set(str(todo_id), todo)

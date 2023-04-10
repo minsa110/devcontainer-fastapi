@@ -1,0 +1,19 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Todo app",
+    "name_for_model": "todo_app",
+    "description_for_human": "Todo app for managing your tasks",
+    "description_for_model": "Todo app for managing your tasks",
+    "auth": {
+        "type": "user_http",
+        "authorization_type": "bearer"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://minsa110-cuddly-palm-tree-69gr759q74q24pw4-8000.preview.app.github.dev/.well-known/openapi.yaml",
+        "is_user_authenticated": "false"
+    },
+    "logo_url": "https://minsa110-cuddly-palm-tree-69gr759q74q24pw4-8000.preview.app.github.dev/.well-known/logo.png",
+    "contact_email": "example@company.com",
+    "legal_info_url": "https://example.com/legal"
+}

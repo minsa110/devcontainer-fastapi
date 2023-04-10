@@ -19,7 +19,6 @@
 			// Set *default* container specific settings.json values on container create.
 			"settings": {
 				"[python]": {
-					"defaultInterpreterPath": "/opt/conda/envs/myenv/bin/python",
 					"editor.formatOnType": true,
 					"editor.formatOnSave": true
 				}

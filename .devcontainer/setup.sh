@@ -33,7 +33,5 @@ echo
 echo "Click on GitHub Codespaces PORTS tab.  Right click on port 8000, and set Port Visibility to Public. Once Port 8000 if Public, press Enter to continue..."
 read -r placeholder_var
 
-echo "Once your app is running, use the following URL to use this plugin in the OpenAI Plugin store:"
-echo $PLUGIN_HOSTNAME
 echo
 echo "Enter 'footoken' if OpenAI prompts you for a Bearer Token"

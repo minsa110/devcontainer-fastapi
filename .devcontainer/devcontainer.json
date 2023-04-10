@@ -3,7 +3,7 @@
 {
 	"name": "FastAPI",
     "build": {
-		"context": "..",
+		"context": ".",
         "dockerfile": "Dockerfile"
     },
 
@@ -19,7 +19,6 @@
 			// Set *default* container specific settings.json values on container create.
 			"settings": {
 				"[python]": {
-					"defaultInterpreterPath": "/opt/conda/envs/myenv/bin/python",
 					"editor.formatOnType": true,
 					"editor.formatOnSave": true
 				}
@@ -45,7 +44,7 @@
         "memory": "8gb"
     },
 
-	"postAttachCommand": "export DATASTORE=redis && export BEARER_TOKEN=footoken && export OPENAI_API_KEY='' && docker compose -f ./docker-compose.yml up -d"
+	"postAttachCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh"
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",

@@ -1,65 +1,46 @@
-import json
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import JSONResponse
-from fastapi.openapi.utils import get_openapi
-from pydantic import BaseModel
-from typing import Optional, Dict, List
+from fastapi.staticfiles import StaticFiles
 import os
+import redis
 
-class TodoItem(BaseModel):
-    title: str
-    description: Optional[str] = None
+redis_client = redis.StrictRedis(host='0.0.0.0', port=6379, db=0, decode_responses=True)
 
 app = FastAPI()
+app.mount("/.well-known", StaticFiles(directory=".well-known"), name="static")
 
-todos: Dict[int, TodoItem] = {}
-next_id: int = 1
+# Route to list all TODOs
+@app.get("/todos")
+def list_todos():
+    todos = {}
+    for key in redis_client.keys():
+        if key != 'todo_id':
+            todos[key] = "["+key+"] "+str(redis_client.get(key))
+    return todos
 
-def load_manifest():
-    with open("./ai-plugin.json", "r") as f:
-        return json.load(f)
-
-@app.get("/.well-known/ai-plugin.json", include_in_schema=False)
-async def ai_plugin():
-    manifest = load_manifest()
-    return JSONResponse(content=manifest)
-
-@app.get("/todos/", response_model=List[TodoItem])
-async def list_todos():
-    return list(todos.values())
-    
-@app.get("/todos/{todo_id}", response_model=TodoItem)
-async def get_todo(todo_id: int):
-    if todo_id not in todos:
+# Route to list a specific TODO
+@app.get("/todos/{todo_id}")
+def list_todo(todo_id: int):
+    todo = redis_client.get(str(todo_id))
+    if todo:
+        return {"todo_id": todo_id, "todo": todo}
+    else:
         raise HTTPException(status_code=404, detail="Todo not found")
-    return todos[todo_id]
 
-@app.post("/todos/")
-async def create_todo(todo: TodoItem):
-    global next_id
-    todos[next_id] = todo
-    next_id += 1
-    return next_id -1
+# Route to add a TODO
+@app.post("/todos")
+def add_todo(todo: str):
+    # Generate a unique todo_id
+    todo_id = redis_client.incr('todo_id')
+    redis_client.set(str(todo_id), todo)
+    return {"todo_id": todo_id, "todo": todo}
 
-@app.delete("/todos/{todo_id}", response_model=None)
-async def delete_todo(todo_id: int):
-    if todo_id not in todos:
+# Route to delete a TODO
+@app.delete("/todos/{todo_id}")
+def delete_todo(todo_id: int):
+    if not redis_client.exists(str(todo_id)):
         raise HTTPException(status_code=404, detail="Todo not found")
-    del todos[todo_id]
-
-def custom_openapi():
-    if app.openapi_schema:
-        return app.openapi_schema
-    openapi_schema = get_openapi(
-        title="TODO App",
-        version="1.0.0",
-        description="A simple TODO app with FastAPI",
-        routes=app.routes,
-    )
-    app.openapi_schema = openapi_schema
-    return app.openapi_schema
-
-app.openapi = custom_openapi
+    redis_client.delete(str(todo_id))
+    return {"result": "Todo deleted"}
 
 if __name__ == "__main__":
     import uvicorn

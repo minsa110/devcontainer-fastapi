@@ -55,7 +55,7 @@ module containerApps './core/host/container-apps.bicep' = {
   }
 }
 
-// api frontend
+// Container app for API frontend
 module api './app/api.bicep' = {
   name: 'api'
   scope: rg
@@ -77,6 +77,7 @@ module api './app/api.bicep' = {
   }
 }
 
+// Container app for Redis datastore
 module redis './app/redis.bicep' = {
   name: 'redis'
   scope: rg

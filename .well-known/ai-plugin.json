@@ -1,9 +1,9 @@
 {
   "schema_version": "v1",
-  "name_for_human": "TODO app",
-  "name_for_model": "TODO_APP",
-  "description_for_human": "Todo app for managing your tasks",
-  "description_for_model": "Todo app for managing your tasks",
+  "name_for_human": "My app",
+  "name_for_model": "my_app",
+  "description_for_human": "This app is",
+  "description_for_model": "This app is",
   "auth": {
     "type": "user_http",
     "authorization_type": "bearer"

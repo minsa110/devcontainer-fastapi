@@ -11,12 +11,13 @@ paths:
       summary: Create a new TODO item
       description: Accepts a string and adds as new TODO item
       operationId: create_todo
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/TodoItem"
+      parameters:
+        - in: query
+          name: todo
+          schema:
+            type: string
+          required: true
+          description: The description of the TODO item
       responses:
         "200":
           description: OK
@@ -78,5 +79,11 @@ components:
     TodoItem:
       type: object
       properties:
-        title:
+        todo:
           type: string
+        todo_id:
+          type: integer
+          format: int32
+          readOnly: true
+      required:
+        - todo

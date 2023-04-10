@@ -13,18 +13,21 @@ param apiContainerAppName string = ''
 param apiImageName string = ''
 param applicationInsightsDashboardName string = ''
 param applicationInsightsName string = ''
+
 @secure()
 param bearerToken string
 param containerAppsEnvironmentName string = ''
 param containerRegistryName string = ''
 param datastore string = 'redis'
 param logAnalyticsName string = ''
+
 @secure()
 param openAiApiKey string = ''
 param redisContainerAppName string = ''
 param redisContainerPort int = 80
 param redisHost string = ''
 param redisImageName string = ''
+
 @secure()
 param redisPassword string = ''
 param redisPort int = 6379

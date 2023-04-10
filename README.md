@@ -1,5 +1,5 @@
 # Building an Open AI plugin with Codespaces
-☁️ **To deploy your app on Azure using Azure Developer CLI and Container Apps, see the [demo-azd](https://github.com/minsa110/devcontainer-fastapi/tree/demo-azd) branch.**
+☁️ **To deploy your app on Azure using Azure Developer CLI and Container Apps, see the [azd-demo](https://github.com/minsa110/devcontainer-fastapi/tree/azd-demo) branch.**
 
 This is a sample repo for developing OpenAI plugin using the FastAPI framework. There are two main parts of the repo:
 - Code to help setup development environment for FastAPI framework

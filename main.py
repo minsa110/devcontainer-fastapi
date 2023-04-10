@@ -3,7 +3,18 @@ from fastapi.staticfiles import StaticFiles
 import os
 import redis
 
-redis_client = redis.StrictRedis(host='0.0.0.0', port=6379, db=0, decode_responses=True)
+redis_host = os.environ.get("REDIS_HOST")
+redis_port = os.environ.get("REDIS_PORT")
+redis_password = os.environ.get("REDIS_PASSWORD")
+
+redis_client = redis.Redis(
+    host=redis_host,
+    port=redis_port,
+    password=redis_password,
+    ssl=True,
+    ssl_cert_reqs=None,
+    decode_responses=True,
+)
 
 app = FastAPI()
 app.mount("/.well-known", StaticFiles(directory=".well-known"), name="static")

@@ -10,10 +10,10 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://minsa110-improved-space-enigma-979q457rjgq29rj5-8000.preview.app.github.dev/.well-known/openapi.yaml",
+    "url": "https://your-app-url.com/.well-known/openapi.yaml",
     "is_user_authenticated": "false"
   },
-  "logo_url": "https://minsa110-improved-space-enigma-979q457rjgq29rj5-8000.preview.app.github.dev/.well-known/logo.png",
+  "logo_url": "https://your-app-url.com/.well-known/logo.png",
   "contact_email": "example@company.com",
   "legal_info_url": "https://example.com/legal"
 }

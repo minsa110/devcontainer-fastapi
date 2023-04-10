@@ -1,14 +1,16 @@
 openapi: 3.0.2
 info:
-  title: TODO app
-  description: Todo app for managing your tasks
+  title: OpenAI plugin for a simple todo app
+  description: Todo app for managing your tasks on ChatGPT
   version: 1.0.0
   servers:
-    - url: https://minsa110-improved-space-enigma-979q457rjgq29rj5-8000.preview.app.github.dev
+    - url: https://your-app-url.com
 paths:
   /todos:
     post:
       summary: Create a new TODO item
+      description: Accepts a string and adds as new TODO item
+      operationId: create_todo
       requestBody:
         required: true
         content:
@@ -21,13 +23,10 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  item_id:
-                    type: integer
-                    format: int64
+                $ref: "#/components/schemas/TodoItem"
     get:
       summary: Get a list of all TODO items
+      operationId: list_todos
       responses:
         "200":
           description: OK
@@ -37,11 +36,12 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/TodoList"
-  /todos/{item_id}:
+  /todos/{todo_id}:
     get:
       summary: Get a TODO item by ID
+      operationId: get_todo
       parameters:
-        - name: item_id
+        - name: todo_id
           in: path
           required: true
           description: ID of the TODO item to retrieve
@@ -55,10 +55,13 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/TodoItem"
+        "404":
+          description: Todo not found
     delete:
       summary: Delete a TODO item by ID
+      operationId: delete_todo
       parameters:
-        - name: item_id
+        - name: todo_id
           in: path
           required: true
           description: ID of the TODO item to delete
@@ -67,7 +70,9 @@ paths:
             format: int64
       responses:
         "204":
-          description: No Content
+          description: Todo deleted
+        "404":
+          description: Todo not found
 components:
   schemas:
     TodoItem:
@@ -75,5 +80,3 @@ components:
       properties:
         title:
           type: string
-      required:
-        - title

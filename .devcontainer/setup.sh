@@ -9,6 +9,9 @@ else
   echo "The 'redis' container is already running."
 fi
 
+echo
+echo "Let's set up your development environment..."
+echo
 echo "Please enter your OpenAI API key found here: https://platform.openai.com/account/api-keys:"
 read -r OPENAI_API_KEY
 
@@ -20,13 +23,13 @@ export PLUGIN_HOSTNAME=https://$CODESPACE_NAME-8000.$GITHUB_CODESPACES_PORT_FORW
 
 echo
 echo "Setting host configuration (from ./hostconfig.sh)..."
-./hostconfig.sh
+chmod +x ./hostconfig.sh && ./hostconfig.sh
 
 echo
 echo "Click on GitHub Codespaces PORTS tab.  Right click on port 8000, and set Port Visibility to Public. Once Port 8000 if Public, press Enter to continue..."
 read -r placeholder_var
 
-echo "Use the following URL to use this plugin in the OpenAI Plugin store:"
+echo "Once your app is running, use the following URL to use this plugin in the OpenAI Plugin store:"
 echo $PLUGIN_HOSTNAME
 echo
 echo "Enter 'footoken' if OpenAI prompts you for a Bearer Token"

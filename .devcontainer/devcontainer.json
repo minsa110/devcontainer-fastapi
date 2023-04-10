@@ -3,7 +3,7 @@
 {
 	"name": "FastAPI",
     "build": {
-		"context": "..",
+		"context": ".",
         "dockerfile": "Dockerfile"
     },
 
@@ -28,10 +28,7 @@
 			"extensions": [
 				"ms-python.python",
 				"GitHub.copilot-nightly",
-				"ms-azuretools.azure-dev",
-                "ms-azuretools.vscode-bicep",
-                "ms-azuretools.vscode-docker",
-                "ms-azuretools.vscode-azurefunctions"
+                "ms-azuretools.vscode-docker"
 			]
 		}
 	},

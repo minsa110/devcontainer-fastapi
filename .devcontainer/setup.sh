@@ -1,6 +1,10 @@
 #!/bin/sh
 # set -eu
 
+# Install libraries from requirements.txt
+chmod +x ./requirements.txt && pip install -r ./requirements.txt
+echo
+
 # Check if the "redis" container is running
 if ! docker ps --filter "status=running" --format "{{.Names}}" | grep -q "redis"; then
   # If the "redis" container is not running, start it using docker-compose

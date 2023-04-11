@@ -30,8 +30,4 @@ echo "Setting host configuration (from ./hostconfig.sh)..."
 chmod +x ./hostconfig.sh && ./hostconfig.sh
 
 echo
-echo "Click on GitHub Codespaces PORTS tab.  Right click on port 8000, and set Port Visibility to Public. Once Port 8000 if Public, press Enter to continue..."
-read -r placeholder_var
-
-echo
 echo "Enter 'footoken' if OpenAI prompts you for a Bearer Token"

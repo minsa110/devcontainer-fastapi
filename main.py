@@ -20,7 +20,7 @@ def list_todos():
     todos = {}
     for key in redis_client.keys():
         if key != 'todo_id':
-            todos[key] = "["+key+"] "+str(redis_client.get(key))
+            todos[key] = "[" + str(key) + "] "+str(redis_client.get(key))
     return todos
 
 # Route to list a specific TODO

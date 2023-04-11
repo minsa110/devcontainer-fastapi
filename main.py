@@ -19,8 +19,11 @@ app.mount("/.well-known", StaticFiles(directory=".well-known"), name="static")
 def list_todos():
     todos = {}
     for key in redis_client.keys():
-        if key != 'todo_id':
-            todos[key] = "[" + str(key) + "] "+str(redis_client.get(key))
+        k = str(key.decode('utf-8'))
+        if k != 'todo_id':
+            todo = redis_client.get(key)
+            if todo is not None:
+                todos[key] = "["+k+"] " + str(todo.decode('utf-8'))
     return todos
 
 # Route to list a specific TODO

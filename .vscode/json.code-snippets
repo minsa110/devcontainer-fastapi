@@ -1,7 +1,0 @@
-{
-    "OpenAPI Manifest": {
-        "prefix": "manifest-openapi",
-        "body": ["{\n\t\"schema_version\": \"${1:v1}\",\n\t\"name_for_human\": \"${2}\",\n\t\"name_for_model\": \"${3}\",\n\t\"description_for_human\": \"${4}\",\n\t\"description_for_model\": \"${5}\",\n\t\"auth\": {\n\t\t\"type\": \"${6:none}\"\n\t},\n\t\"api\": {\n\t\t\"type\": \"openapi\",\n\t\t\"url\": \"${7:https://your-app-url.com/openapi.yaml}\",\n\t\t\"is_user_authenticated\": \"${8:false}\"\n\t},\n\t\"logo_url\": \"${9:https://your-app-url.com/logo.png}\",\n\t\"contact_email\": \"${10:example@company.com}\",\n\t\"legal_info_url\": \"${11:https://example.com/legal}\"\n}$0"],
-        "description": "OpenAI manifest"
-    }
-}
